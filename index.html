@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BurgerCraft — Menu</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">🍔</div>
+    Burger<span>Craft</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#">À propos</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <button class="cart-btn" onclick="openCart()">
+    🛒 Panier <span class="cart-count" id="cartCount">0</span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">✦ Artisanal · Grillé · Authentique ✦</div>
+    <h1>L'Art du<em>Vrai Burger</em></h1>
+    <p>Des burgers faits à la main avec des ingrédients frais sélectionnés chaque jour. Une explosion de saveurs à chaque bouchée.</p>
+    <div class="hero-cta">
+      <a href="#menu" class="btn-primary">Voir le Menu</a>
+      <a href="#" class="btn-outline">Notre Histoire</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Défiler</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">12+</div>
+    <div class="stat-label">Burgers signatures</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4.9</div>
+    <div class="stat-label">Note moyenne</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">8K+</div>
+    <div class="stat-label">Clients satisfaits</div>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="section-header">
+    <div class="section-tag">✦ Notre Sélection ✦</div>
+    <h2 class="section-title">Burger Menu</h2>
+    <p class="section-sub">Vous aurez besoin des deux mains pour tenir nos buns grillés. Nos burgers juteux sont servis à point avec des frites et une tonne de saveur.</p>
+  </div>
+
+  <div class="filter-tabs">
+    <button class="tab active" onclick="filterCards('all', this)">Tous</button>
+    <button class="tab" onclick="filterCards('classic', this)">Classiques</button>
+    <button class="tab" onclick="filterCards('special', this)">Spéciaux</button>
+    <button class="tab" onclick="filterCards('premium', this)">Premium</button>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid">
+
+    <!-- Double Burger -->
+    <div class="card" data-cat="classic">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt="Double Burger" loading="lazy">
+        <span class="card-badge">Bestseller</span>
+        <span class="card-rating">⭐ 4.9</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Double Burger</div>
+        <p class="card-desc">Double steak haché 180g, cheddar fondu, laitue, tomate, oignons caramélisés & sauce maison.</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>$</sup>6.50</div>
+          <button class="add-btn" onclick="addToCart('Double Burger', 6.50)">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Farm House -->
+    <div class="card" data-cat="classic">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80" alt="Farm House">
+        <span class="card-rating">⭐ 4.8</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Farm House</div>
+        <p class="card-desc">Steak fermier, bacon croustillant, œuf au plat, fromage de chèvre & confiture d'oignons.</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>$</sup>7.50</div>
+          <button class="add-btn" onclick="addToCart('Farm House', 7.50)">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bacon Burger -->
+    <div class="card" data-cat="classic">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80" alt="Bacon Burger">
+        <span class="card-rating">⭐ 4.7</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Bacon Burger</div>
+        <p class="card-desc">Triple bacon fumé, emmental, cornichons, sauce barbecue artisanale & pickles maison.</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>$</sup>8.00</div>
+          <button class="add-btn" onclick="addToCart('Bacon Burger', 8.00)">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special Offer -->
+    <div class="card" data-cat="special">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80" alt="Special Offer">
+        <span class="card-badge">Offre Spéciale</span>
+        <span class="card-rating">⭐ 4.9</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Special Offer</div>
+        <p class="card-desc">Double smash patty, sauce secrète, comté affiné, avocat, roquette & oignons croustillants.</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>$</sup>9.50</div>
+          <button class="add-btn" onclick="addToCart('Special Offer', 9.50)">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Black Burger -->
+    <div class="card" data-cat="special">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=600&q=80" alt="Black Burger">
+        <span class="card-badge">Signature</span>
+        <span class="card-rating">⭐ 4.8</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Black Burger</div>
+        <p class="card-desc">Bun au charbon végétal, wagyu haché, truffe, raclette fondue & mayo à la truffe noire.</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>$</sup>11.00</div>
+          <button class="add-btn" onclick="addToCart('Black Burger', 11.00)">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- King Burger -->
+    <div class="card" data-cat="premium">
+      <div class="card-img-wrap">
+        <img class="card-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="King Burger">
+        <span class="card-badge">Premium</span>
+        <span class="card-rating">⭐ 5.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">King Burger</div>
+        <p class="card-desc">Triple steak Angus 220g, homard grillé, beurre de homard, caviar d'aubergine & sauce Béarnaise.</p>
+        <div class="card-footer">
+          <div class="card-price"><sup>$</sup>13.00</div>
+          <button class="add-btn" onclick="addToCart('King Burger', 13.00)">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  <div class="promo-bg"></div>
+  <div class="promo-content">
+    <span class="promo-tag">✦ Offre Limitée ✦</span>
+    <h2 class="promo-title">Happy Hour<em>-30%</em></h2>
+    <p class="promo-sub">Chaque jour de 17h à 19h, profitez de 30% de réduction sur tous nos burgers classiques. Offre valable sur place et à emporter.</p>
+    <a href="#menu" class="btn-primary">Commander maintenant</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2025 BurgerCraft. Tous droits réservés.</div>
+  <ul class="footer-links">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">À propos</a></li>
+    <li><a href="#">Livraison</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <div class="toast-dot"></div>
+  <span id="toastMsg">Ajouté au panier !</span>
+</div>
+
+<script>
+  let cartItems = 0;
+  let cartTotal = 0;
+  let toastTimer;
+
+  function addToCart(name, price) {
+    cartItems++;
+    cartTotal += price;
+    document.getElementById('cartCount').textContent = cartItems;
+    showToast(`${name} ajouté — Total: $${cartTotal.toFixed(2)}`);
+  }
+
+  function showToast(msg) {
+    clearTimeout(toastTimer);
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  function openCart() {
+    if (cartItems === 0) {
+      showToast('Votre panier est vide !');
+    } else {
+      showToast(`${cartItems} article(s) — Total: $${cartTotal.toFixed(2)}`);
+    }
+  }
+
+  function filterCards(cat, btn) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.card').forEach(card => {
+      const match = cat === 'all' || card.dataset.cat === cat;
+      card.style.display = match ? 'block' : 'none';
+      if (match) {
+        card.style.animation = 'none';
+        card.offsetHeight;
+        card.style.animation = 'fadeUp 0.4s ease';
+      }
+    });
+  }
+
+  /* Smooth scroll for nav links */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* Nav shadow on scroll */
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.5)' : 'none';
+  });
+</script>
+</body>
+</html>
